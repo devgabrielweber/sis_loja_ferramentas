@@ -26,8 +26,15 @@ return new class extends Migration
 
         Schema::create('pedido', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('feramenta_id')->constrained('ferramenta');
             $table->foreignId('cliente_id')->constrained('cliente');
+            $table->float('preco');
+            $table->timestamps();
+        });
+
+        Schema::create('pedido_item', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('pedido_id')->constrained('pedido');
+            $table->foreignId('ferramenta_id')->constrained('ferramentas');
             $table->timestamps();
         });
     }
