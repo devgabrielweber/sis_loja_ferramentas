@@ -17,3 +17,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+/docker
+/.docker
+/composer.json
+/composer.lock
+/docker-compose.yml 
+/Dockerfile
