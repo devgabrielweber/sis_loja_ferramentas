@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ferramenta extends Model
+class Pedido extends Model
 {
     use HasFactory;
-
-    protected $table = 'ferramentas';
+    protected $table = 'pedido';
     protected $fillable = [
-        'nome',
-        'marca',
-        'tipo',
-        'fornecedor',
-        'preco'
+        'cliente_id',
+        'preco',
     ];
+
     protected $casts = [
-        'preco' => 'float'
+        'preco' => 'float',
+        'cliente_id' => 'integer',
     ];
 }

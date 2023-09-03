@@ -27,7 +27,7 @@ return new class extends Migration
         Schema::create('pedido', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cliente_id')->constrained('cliente');
-            $table->float('preco');
+            $table->decimal('preco');
             $table->timestamps();
         });
 
@@ -44,6 +44,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cliente_pessoas');
+        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('pedido_item');
+        Schema::dropIfExists('pedido');
     }
 };
