@@ -9,15 +9,12 @@ class Ferramenta extends Model
 {
     use HasFactory;
 
-    protected $table = 'ferramentas';
+    protected $title = 'ferramentas';
     protected $fillable = [
         'nome',
         'marca',
         'tipo',
         'fornecedor',
         'preco'
-    ];
-    protected $casts = [
-        'preco' => 'float'
     ];
 }
