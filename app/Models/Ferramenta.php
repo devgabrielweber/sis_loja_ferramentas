@@ -15,6 +15,9 @@ class Ferramenta extends Model
         'marca',
         'tipo',
         'fornecedor',
-        'preco'
+        'preco',
+        'qtd'
     ];
+
+    
 }

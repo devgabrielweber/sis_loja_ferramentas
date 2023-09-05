@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('marca');
-            $table->string('tipo');
+            $table->string('tipo')->nullable();
             $table->string('fornecedor');
             $table->float('preco');
             $table->timestamps();
