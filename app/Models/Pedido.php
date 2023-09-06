@@ -11,11 +11,13 @@ class Pedido extends Model
     protected $table = 'pedido';
     protected $fillable = [
         'cliente_id',
-        'preco',
+        'total',
+        'data'
     ];
 
     protected $casts = [
-        'preco' => 'float',
+        'total' => 'float',
         'cliente_id' => 'integer',
+        'data' => 'string'
     ];
 }

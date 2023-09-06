@@ -26,20 +26,35 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cliente' => 'required',
+            'cliente_id' => 'required',
+            'data'=>'required'
         ], [
-            'cliente.required' => 'O :attribute é obrigatório',
+            'cliente_id.required' => 'O Cliente é obrigatório',
+            'data.required' => 'Data é obrigatório'
         ]);
 
         $dados = [
             'cliente_id' => $request->cliente_id,
             'data' => $request->data,
+            'total' => $request->total,
         ];
 
 
-        Pedido::create($dados);
+        $ferramentas = Ferramenta::all();
 
-        return redirect('pedido_item/add')->with(['dados' => $dados]);
+        $pedido = new Pedido(); // inserir dados
+        $pedido->cliente_id = $request->cliente_id;
+        $pedido->data = $request->data;
+        $pedido->total = $request->total;
+        $pedido->save();
+       // dd($pedido);
+
+        $cliente = Cliente::find($request->cliente_id);
+
+        return view('pedido_item.add')->with(['pedido' => $pedido,
+        'ferramentas'=>$ferramentas,
+        'cliente'=>$cliente]);
+
     }
 
     public function show()
@@ -90,7 +105,7 @@ class PedidoController extends Controller
     {
         if (!empty($request->valor)) {
             $pedido = Pedido::where(
-                $request->tipo,
+                $request->campo,
                 'like',
                 "%" . $request->valor . "%"
             )->get();
