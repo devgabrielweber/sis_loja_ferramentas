@@ -40,9 +40,13 @@ Route::post('/ferramentas/update/{id}', [FerramentaController::class, 'update'])
 Route::post('/ferramenta/list', [FerramentaController::class, 'index']);
 //rota post de list, para que o controller update consiga redirecionar para list. nao tem interferencia no funcionamento da pagina em si.
 
+Route::post('/ferramenta/search', [FerramentaController::class, 'index'])->name('ferramentas.search');
+
 /* ROTAS DOS CLIENTES */
-Route::get('/clientes/create', [ClienteController::class, 'create']);
-Route::get('/clientes/list', [ClienteController::class, 'list']);
+Route::get('/clientes/create', [ClienteController::class, 'create'])->name('cliente.create');;
+Route::get('/clientes/list', [ClienteController::class, 'list'])->name('cliente.list');;
+Route::get('/clientes/search', [ClienteController::class, 'search'])->name('cliente.search');
+Route::get('/clientes/store', [ClienteController::class, 'store'])->name('cliente.store');
 
 
 
