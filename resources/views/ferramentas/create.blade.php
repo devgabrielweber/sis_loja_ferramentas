@@ -32,8 +32,8 @@
                 }
             }
         } else {
-            // se ferramenta nao existir
             $route = route('ferramentas.store'); // use a rota store
+            // se ferramenta nao existir
         }
         
         if (isset($dados)) {
@@ -50,7 +50,7 @@
 
     <h1>Cadastrar Ferramenta</h1>
 
-    <form action={{ $route }} method='POST'>
+    <form action={{ $route }} method='post'>
         @csrf
         @foreach ($campos as $campo)
             <label>{{ $campo }}</label><br>

@@ -22,14 +22,14 @@ Route::get('/events/create', [EventController::class, 'create']);
 
 
 /* ROTAS DAS FERRAMENTAS */
-Route::get('/ferramentas/create', [FerramentaController::class, 'create']);
+Route::get('/ferramentas/create', [FerramentaController::class, 'create'])->name('ferramentas.create');
 //rota do create, chama create no controller, que redirecionada para create
 
 Route::get('/ferramentas/list', [FerramentaController::class, 'index'])->name('ferramentas.list');
 //rota do list, chama index no controller, que redireciona para list
 
-Route::post('/ferramentas/list', [FerramentaController::class, 'store'])->name('ferramentas.store');
-//rota do store, chama store no controller, que redireciona para a list.
+Route::post('/ferramentas/create',
+[FerramentaController::class, 'store'])->name('ferramentas.store');//rota do store, chama store no controller, que redireciona para a list.
 
 Route::get('/ferramentas/edit/{id}', [FerramentaController::class, 'edit'])->name('ferramentas.edit');
 //rota do edit, chama edit no controller, que redicreciona para create com $ferramenta e $campos
@@ -39,6 +39,10 @@ Route::post('/ferramentas/update/{id}', [FerramentaController::class, 'update'])
 
 Route::post('/ferramenta/list', [FerramentaController::class, 'index']);
 //rota post de list, para que o controller update consiga redirecionar para list. nao tem interferencia no funcionamento da pagina em si.
+
+Route::get('/ferramentas/list/{id}', [FerramentaController::class, 'destroy'])->name('ferramentas.destroy');
+
+Route::post('/ferramentas/search',[FerramentaController::class, 'search'])->name('ferramentas.search');
 
 Route::post('/ferramenta/search', [FerramentaController::class, 'index'])->name('ferramentas.search');
 

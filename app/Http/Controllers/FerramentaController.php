@@ -49,7 +49,7 @@ class FerramentaController extends Controller
         ];
        Ferramenta::create($dados); //cria novo item no bd
 
-        return redirect(route('ferramentas.list')); //redireciona para rota list 
+       return redirect(route('ferramentas.list')); //redireciona para rota list 
                                                     //(que redireciona para list)
     }
 
@@ -101,23 +101,21 @@ class FerramentaController extends Controller
     { //destroi item com base no id
         $ferramenta = Ferramenta::findOrFail($id); //encontra o item
         $ferramenta->delete(); //deleta o item
-        return redirect('ferramentas.list')->with('success', 'Removido com Sucesso!');
+        return redirect('ferramentas/list')->with('success', 'Removido com Sucesso!');
         //redireciona para list
     }
-
-
-    public function search(Request $request) {
-
-        if(!empty($request->valor)){
-            $ferramentas = Ferramenta::where(
-                $request->campo,
-                 'like' ,
-                "%". $request->valor."%"
-                )->get();
+    public function search(Request $request)
+    { //falta implementar
+        if (!empty($request->valor)) {
+            $ferramenta = Ferramenta::where(
+                $request->tipo,
+                'like',
+                "%" . $request->valor . "%"
+            )->get();
         } else {
             $ferramentas = Ferramenta::all();
         }
 
-        return view('ferramentas.list')->with(['ferramentas'=> $ferramentas]);
+        return view('ferramentas.list')->with(['ferramentas' => $ferramenta]);
     }
 }
