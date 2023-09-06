@@ -28,6 +28,7 @@
 
     <table>
         <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>CPF</th>
             <th>CNPJ</th>
@@ -37,6 +38,7 @@
         </tr>
         @foreach ($clientes as $cliente)
             <tr>
+                <td>{{ $cliente->id }}</td>
                 <td>{{ $cliente->nome }}</td>
                 <td>{{ $cliente->cpf }}</td>
                 <td>{{ $cliente->cnpj }}</td>

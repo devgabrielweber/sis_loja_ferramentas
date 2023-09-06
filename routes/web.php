@@ -38,14 +38,12 @@ Route::get('/ferramentas/edit/{id}', [FerramentaController::class, 'edit'])->nam
 Route::post('/ferramentas/update/{id}', [FerramentaController::class, 'update'])->name('ferramentas.update');
 //rota do update, chama update no controller, que redireciona para list
 
-Route::post('/ferramenta/list', [FerramentaController::class, 'index']);
+Route::post('/ferramentas/list', [FerramentaController::class, 'index'])->name('ferramentas.list');
 //rota post de list, para que o controller update consiga redirecionar para list. nao tem interferencia no funcionamento da pagina em si.
 
 Route::get('/ferramentas/list/{id}', [FerramentaController::class, 'destroy'])->name('ferramentas.destroy');
 
-Route::post('/ferramentas/search',[FerramentaController::class, 'search'])->name('ferramentas.search');
-
-Route::post('/ferramenta/search', [FerramentaController::class, 'index'])->name('ferramentas.search');
+Route::get('/ferramentas/search',[FerramentaController::class, 'search'])->name('ferramentas.search');
 
 /* ROTAS DOS CLIENTES */
 Route::get('/clientes/create', [ClienteController::class, 'create'])->name('cliente.create');;
@@ -91,7 +89,7 @@ Route::post('/pedido/store', [PedidoController::class, 'store'])->name('pedido.s
     $id dentro de function()    - inicialização da variável id e possibilidade de valor default
     view('product')             - arquivo .blade.php que será acessado na pasta views
     ['id' => $id]               - parâmetro extra que será passado para a view
-    
+
 
 Route::get('/produtos/{id?}', function ($id = null) {
     return view('product', ['id' => $id]);

@@ -9,7 +9,7 @@
     <div class="container-fluid w-100 justify-content-center align-items-center">
         <div class="input-group">
             <div class="container-fluid p-4">
-                <form action="{{ route('ferramentas.search') }}" method="POST">
+                <form action="{{ route('ferramentas.search') }}" method="get">
                     @csrf
                     <select name="campo">
                         <option value="" selected disabled>Selecione uma opção</option>

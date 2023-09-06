@@ -43,7 +43,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/events/create" class="nav-link">Criar Evento</a>
+                        <a href="/pedido/create" class="nav-link">Criar Pedido</a>
                     </li>
                     <ul>
             </div>

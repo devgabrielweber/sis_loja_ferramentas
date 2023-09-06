@@ -51,7 +51,7 @@ class FerramentaController extends Controller
 
         $ferramentas = Ferramenta::all();
 
-       return redirect(route('ferramentas.list'))->with(['ferramentas'=>$ferramentas]); //redireciona para rota list 
+       return redirect(route('ferramentas.list'))->with(['ferramentas'=>$ferramentas]); //redireciona para rota list
                                                     //(que redireciona para list)
     }
 
@@ -95,7 +95,7 @@ class FerramentaController extends Controller
 
         Ferramenta::updateOrCreate(['id' => $request->id], $dados); //atualiza o item no db
 
-        return redirect('ferramentas/list')->with('success', "Atualizado com sucesso!"); 
+        return redirect('ferramentas/list')->with('success', "Atualizado com sucesso!");
         //redireciona para list
     }
 
@@ -110,7 +110,7 @@ class FerramentaController extends Controller
     { //falta implementar
         if (!empty($request->valor)) {
             $ferramenta = Ferramenta::where(
-                $request->tipo,
+                $request->campo,
                 'like',
                 "%" . $request->valor . "%"
             )->get();
