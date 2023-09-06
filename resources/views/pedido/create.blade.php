@@ -33,18 +33,14 @@
         @csrf
         <div class="mb-3">
             <br><b><label for="" class="form-label">Cliente: </label></b>
-            <select name="cliente_id" id="">
+            <select name="cliente" id="">
                 @foreach ($clientes as $cliente)
                     <option value={{ $cliente->id }}>{{ $cliente->nome }}</option>
                 @endforeach
             </select><br><br>
             <b><label>Data: </label></b>
-            {{$hj}}
-            <input type="hidden" value="{{$hj}}" name='data'>
-            <input type="hidden" value="0" name='total'>
+            <input type="input" value="{{$hj}}" @disabled(true)>
         </div>
-        <input type="hidden" value="{{$hj}}" name='data'>
-        <input type="hidden" value="0" name='total'>
         <input type="submit" value="Cadastrar">
     </form>
     @if ($errors->any())

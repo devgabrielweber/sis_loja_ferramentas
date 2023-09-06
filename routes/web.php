@@ -57,9 +57,6 @@ Route::get('/pedido/create',[PedidoController::class, 'create'])->name('pedido.c
 Route::post('/pedido/update/{id}', [PedidoController::class, 'update'])->name('pedido.update');
 Route::post('/pedido/store', [PedidoController::class, 'store'])->name('pedido.store');
 
-/* ROTAS DE DEUS SABE O QUE */
-Route::get('/pedido_item/add/{id}',[PedidoController::class, 'create'])->name('pedido_item.add');
-
 
 
 
