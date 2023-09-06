@@ -104,18 +104,20 @@ class FerramentaController extends Controller
         return redirect('ferramentas.list')->with('success', 'Removido com Sucesso!');
         //redireciona para list
     }
-    public function search(Request $request)
-    { //falta implementar
-        if (!empty($request->valor)) {
-            $ferramenta = Ferramenta::where(
-                $request->tipo,
-                'like',
-                "%" . $request->valor . "%"
-            )->get();
+
+
+    public function search(Request $request) {
+
+        if(!empty($request->valor)){
+            $ferramentas = Ferramenta::where(
+                $request->campo,
+                 'like' ,
+                "%". $request->valor."%"
+                )->get();
         } else {
-            $ferramenta = Ferramenta::all();
+            $ferramentas = Ferramenta::all();
         }
 
-        return view('ferramentas.list')->with(['ferramentas' => $ferramenta]);
+        return view('ferramentas.list')->with(['ferramentas'=> $ferramentas]);
     }
 }
