@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PedidoItem;
+use App\Models\Ferramenta;
 use App\Models\Cliente;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
@@ -16,8 +18,9 @@ class PedidoController extends Controller
 
     public function create()
     {
-        $clientes = Cliente::all()->orderBy('name');
-        return view('pedido.form')->with(['clientes' => $clientes]);
+        $ferramentas = Ferramenta::all();
+        $clientes = Cliente::all();
+        return view('pedido.create')->with(['clientes' => $clientes])->with(['ferramentas' => $ferramentas]);
     }
 
     public function store(Request $request)
@@ -45,7 +48,7 @@ class PedidoController extends Controller
     public function edit($id)
     {
         $pedido = Pedido::find($id);
-        return view('pedido.form')->with(['pedido' => $pedido]);
+        return view('pedido.create')->with(['pedido' => $pedido]);
     }
     public function update(Request $request)
     {

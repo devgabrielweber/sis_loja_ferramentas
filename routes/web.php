@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PedidoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,12 @@ Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clie
 Route::get('/clientes/list', [ClienteController::class, 'list'])->name('cliente.list');;
 Route::get('/clientes/search', [ClienteController::class, 'search'])->name('cliente.search');
 Route::get('/clientes/store', [ClienteController::class, 'store'])->name('cliente.store');
+
+
+/* ROTAS DOS PEDIDOS */
+Route::get('/pedido/create',[PedidoController::class, 'create'])->name('pedido.create');
+Route::post('/pedido/update/{id}', [PedidoController::class, 'update'])->name('pedido.update');
+Route::post('/pedido/store', [PedidoController::class, 'store'])->name('pedido.store');
 
 
 

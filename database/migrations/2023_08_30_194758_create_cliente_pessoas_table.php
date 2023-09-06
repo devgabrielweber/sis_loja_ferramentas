@@ -11,16 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cliente', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->string('cpf')->nullable();
-            $table->string('cnpj')->nullable();
-            $table->string('telefone');
-            $table->string('email');
-            $table->string('endereco');
-            $table->timestamps();
-        });
 
         Schema::disableForeignKeyConstraints();
 
