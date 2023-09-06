@@ -26,19 +26,20 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'preco' => 'required',
+            'cliente' => 'required',
         ], [
-            'preco.required' => 'O :attribute é obrigatório',
+            'cliente.required' => 'O :attribute é obrigatório',
         ]);
 
         $dados = [
             'cliente_id' => $request->cliente_id,
-            'preco' => $request->preco,
+            'data' => $request->data,
         ];
+
 
         Pedido::create($dados);
 
-        return redirect('pedido')->with('success', 'Cadastrado com Sucesso!');
+        return redirect('pedido_item/add')->with(['dados' => $dados]);
     }
 
     public function show()
