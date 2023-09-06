@@ -49,7 +49,9 @@ class FerramentaController extends Controller
         ];
        Ferramenta::create($dados); //cria novo item no bd
 
-       return redirect(route('ferramentas.list')); //redireciona para rota list 
+        $ferramentas = Ferramenta::all();
+
+       return redirect(route('ferramentas.list'))->with(['ferramentas'=>$ferramentas]); //redireciona para rota list 
                                                     //(que redireciona para list)
     }
 

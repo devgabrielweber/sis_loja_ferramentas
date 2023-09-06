@@ -1,29 +1,29 @@
 @extends('layouts.main')
 @section('title', 'Cadastrar Cliente')
 @section('content')
-       
+
     <h1>Cadastrar Cliente</h1>
 
     <form action='{{ route('cliente.store') }}' method='GET'>
-        <label>Nome:</label>
-        <input type='text' name='nome'>
+        <label>Nome:</label><br>
+        <input type='text' name='nome'><br><br>
 
-        <label>CPF:</label>
-        <input type='text' name='cpf'>
+        <label>CPF:</label><br>
+        <input type='text' name='cpf'><br><br>
 
-        <label>CNPJ:</label>
-        <input type='text' name='cnpj'>
+        <label>CNPJ:</label><br>
+        <input type='text' name='cnpj'><br><br>
 
-        <label>Telefone:</label>
-        <input type='text' name='telefone'>
+        <label>Telefone:</label><br>
+        <input type='text' name='telefone'><br><br>
 
-        <label>E-mail:</label>
-        <input type='text' name='email'>
+        <label>E-mail:</label><br>
+        <input type='text' name='email'><br><br>
 
-        <label>Endereço:</label>
-        <input type='text' name='endereco'>
+        <label>Endereço:</label><br>
+        <input type='text' name='endereco'><br><br>
 
-        <input type='submit' value='Ãr fi'>
+        <input type='submit' value='Enviar'>
     </form>
 
 @endsection

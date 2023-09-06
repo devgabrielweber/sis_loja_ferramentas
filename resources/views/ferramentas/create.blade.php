@@ -48,22 +48,36 @@
         }
     @endphp
 
-    <h1>Cadastrar Ferramenta</h1>
+    <div class="container d-flex justify-content-center align-items-center flex-wrap">
+        <h1 class="container text-center">Cadastrar Ferramenta</h1>
+        <form action={{ $route }} method='post'>
+            @csrf
+            <label>Nome:</label><br>
+            <input type='text' name='nome'><br><br>
 
-    <form action={{ $route }} method='post'>
-        @csrf
-        @foreach ($campos as $campo)
-            <label>{{ $campo }}</label><br>
-            <input type="text" name={{ $campo }} placeholder={{ $campo }} value='{{ $valor[$campo] }}'><br>
-        @endforeach
-        <input type="submit">
-    </form>
-    @if ($errors->any())
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+            <label>Marca:</label><br>
+            <input type='text' name='marca'><br><br>
 
+            <label>Tipo:</label><br>
+            <input type='text' name='tipo'><br><br>
+
+            <label>Fornecedor:</label><br>
+            <input type='text' name='fornecedor'><br><br>
+
+            <label>Preço:</label><br>
+            <input type='number' name='preco'><br><br>
+
+            <label>Quantidade:</label><br>
+            <input type='text' name='qtd'><br><br>
+
+            <input type='submit' value='Enviar' class="container text-center">
+        </form>
+        @if ($errors->any())
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
 @endsection
