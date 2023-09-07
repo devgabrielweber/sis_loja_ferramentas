@@ -22,20 +22,19 @@ class PedidoItemController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'preco' => 'required',
-        ], [
-            'preco.required' => 'O :attribute é obrigatório',
-        ]);
+        $ferramenta = Ferramenta::find($request->ferramenta_id);
+        $total = $request->total + $ferramenta->preco;
+        $pedido_id = $request->pedido_id;
 
-        $dados = [
-            'cliente_id' => $request->cliente_id,
-            'preco' => $request->preco,
-        ];
+        $pedidoitem = new PedidoItem();
+        $pedidoitem->ferramenta_id = $request->ferramenta_id;
+        $pedidoitem->pedido_id = $request->pedido_id;
+        $pedidoitem->qtd = $request->qtd;
+        $pedidoitem->save();
 
-        PedidoItem::create($dados);
+        dd($pedidoitem);
 
-        return redirect('pedido_item')->with('success', 'Cadastrado com Sucesso!');
+        return route('pedido_item.add');
     }
 
     public function show()

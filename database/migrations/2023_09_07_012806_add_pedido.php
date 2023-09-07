@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 return new class extends Migration
 {
     /**
@@ -16,17 +14,22 @@ return new class extends Migration
 
         Schema::create('pedido', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained('cliente');
-            $table->float('preco');
+            $table->foreignId('cliente_id')->nullable()
+            ->constrained('clientes')->default(null);
+            $table->float('total');
+            $table->string('data');
             $table->timestamps();
         });
 
         Schema::create('pedido_item', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pedido_id')->constrained('pedido');
-            $table->foreignId('ferramenta_id')->constrained('ferramentas');
+            $table->foreignId('pedido_id')->nullable()->constrained('pedido')->default(null);
+            $table->foreignId('ferramenta_id')->nullable()->constrained('ferramentas')->default(null);
+            $table->integer('qtd');
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -34,6 +37,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('pedido');
         Schema::dropIfExists('cliente_pessoas');
     }
 };
