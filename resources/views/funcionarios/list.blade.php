@@ -4,7 +4,7 @@
 
 
     <div class="container-fluid w-100 align-text-center">
-        <h1>Listagem de Ferramentas</h1>
+        <h1>Listagem de Funcionarios</h1>
     </div>
     <div class="container-fluid w-100 justify-content-center align-items-center">
         <div class="input-group">
@@ -15,11 +15,12 @@
                         <option value="" selected disabled>Selecione uma opção</option>
                         <option value="id">ID</option>
                         <option value="nome">Nome</option>
-                        <option value="marca">Marca</option>
-                        <option value="tipo">Tipo</option>
-                        <option value="fornecedor">Fornecedor</option>
-                        <option value="preco">Preço</option>
-                        <option value="qtd">Quantidade</option>
+                        <option value="cpf">CPF</option>
+                        <option value="salario">Salario</option>
+                        <option value="cargo">Cargo</option>
+                        <option value="telefone">Telefone</option>
+                        <option value="email">Email</option>
+                        <option value="endereco">Endereço</option>
                     </select>
 
                     <input type="search" class="form-control rounded" placeholder="Valor a ser buscado" name="valor" />
