@@ -43,7 +43,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/pedido/create" class="nav-link">Criar Pedido</a>
+                        <a href="/funcionarios/create" class="nav-link">Criar Funcionarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/funcionarios/list" class="nav-link">Listar Funcionarios</a>
                     </li>
                     <ul>
             </div>

@@ -12,6 +12,21 @@ class PedidoController extends Controller
         $pedidos = Pedido::all();
         return view('pedido.list')->with(['pedidos' => $pedidos]);
     }
+
+
+    public function save(Request $request){
+        $dados = [
+            'cliente_id' => $request->cliente_id,
+            'total' => $request->total,
+            'data' => $request->data
+        ];
+        Pedido::updateOrCreate(['id' => $request->id], $dados);
+
+        return view('clientes/create');
+    }
+
+
+
     public function create()
     {
         $ferramentas = Ferramenta::all();
@@ -20,13 +35,6 @@ class PedidoController extends Controller
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'cliente_id' => 'required',
-            'data'=>'required'
-        ], [
-            'cliente_id.required' => 'O Cliente é obrigatório',
-            'data.required' => 'Data é obrigatório'
-        ]);
 
         $ferramentas = Ferramenta::all();
 
@@ -43,7 +51,7 @@ class PedidoController extends Controller
 
         return view('pedido_item.add')->with(['pedido' => $pedido,
         'ferramentas'=>$ferramentas,
-        'cliente'=>$cliente]);
+        'cliente'=>$cliente,'id'=>$pedido->id,'total'=>$request->total]);
     }
 
     public function show()

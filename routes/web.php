@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\PedidoController;
+use App\Models\PedidoItem;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FerramentaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoItemController;
+use App\Http\Controllers\FuncionarioController;
 Route::get('/', [EventController::class, 'index']);
 Route::get('/events/create', [EventController::class, 'create']);
 /* ROTAS DAS FERRAMENTAS */
@@ -39,7 +42,21 @@ Route::get('/clientes/store', [ClienteController::class, 'store'])->name('client
 /* ROTAS DOS PEDIDOS */
 Route::get('/pedido/create',[PedidoController::class, 'create'])->name('pedido.create');
 Route::post('/pedido/update/{id}', [PedidoController::class, 'update'])->name('pedido.update');
-Route::post('/pedido/store', [PedidoController::class, 'store'])->name('pedido.store');
+Route::post('/pedido/create/', [PedidoController::class, 'store'])->name('pedido.store');
 
 /* ROTAS DE DEUS SABE O QUE */
-Route::post('/pedido_item/add/',[PedidoController::class, 'store'])->name('pedido_item.add');
+Route::post('/pedido_item/add/{id}/{total}',[PedidoItemController::class, 'store'])->name('pedido_item.add');
+
+Route::post('/pedido/create',[PedidoController::class, 'save'])->name('pedido.save');
+
+
+// ROTA DOS FUNCIONARIOS
+Route::get('/funcionarios/create', [FuncionarioController::class, 'create'])->name('funcionarios.create');
+Route::get('/funcionarios/list', [FuncionarioController::class, 'index'])->name('funcionarios.list');
+Route::post('/funcionarios/create',
+[FuncionarioController::class, 'store'])->name('funcionarios.store');
+Route::get('/funcionarios/edit/{id}', [FuncionarioController::class, 'edit'])->name('funcionarios.edit');
+Route::post('/funcionarios/update/{id}', [FuncionarioController::class, 'update'])->name('funcionarios.update');
+Route::post('/funcionarios/list', [FuncionarioController::class, 'index'])->name('funcionarios.list');
+Route::get('/funcionarios/list/{id}', [FuncionarioController::class, 'destroy'])->name('funcionarios.destroy');
+Route::get('/funcionarios/search',[FuncionarioController::class, 'search'])->name('funcionarios.search');

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pedido_id')->nullable()->constrained('pedido')->default(null);
             $table->foreignId('ferramenta_id')->nullable()->constrained('ferramentas')->default(null);
-            $table->integer('qtd');
+            $table->integer('qtd')->default(null);
             $table->timestamps();
         });
 
