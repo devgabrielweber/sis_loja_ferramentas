@@ -47,8 +47,8 @@
                 <td>{{ $cliente->telefone }}</td>
                 <td>{{ $cliente->email }}</td>
                 <td>{{ $cliente->endereco }}</td>
-                <td><a href=''>Editar</a></td>
-                <td><a href=''>Deletar</a></td>
+                <td><a href={{ route('clientes.edit', $cliente->id) }}>Editar</a></td>
+                <td><a href={{ route('clientes.edit', $cliente->id) }}>Deletar</a></td>
             </tr>
         @endforeach
     </table>

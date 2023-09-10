@@ -22,25 +22,25 @@
         <form action={{ $route }} method='post'>
             @csrf
             <label>Nome:</label><br>
-            <input type='text' name='nome'><br><br>
+            <input type='text' name='nome' value="@if (!empty($funcionario->nome)) {{ $funcionario->nome }}@elseif (!empty(old('nome'))){{ old('nome') }}@else{{ '' }} @endif"required><br><br>
 
             <label>CPF:</label><br>
-            <input type='text' name='cpf'><br><br>
+            <input type='text' name='cpf' value="@if (!empty($funcionario->cpf)) {{ $funcionario->cpf }}@elseif (!empty(old('cpf'))){{ old('cpf') }}@else{{ '' }} @endif" required><br><br>
 
             <label>Salario:</label><br>
-            <input type='text' name='salario'><br><br>
+            <input type='text' name='salario' value="@if (!empty($funcionario->salario)) {{ $funcionario->salario }}@elseif (!empty(old('salario'))){{ old('salario') }}@else{{ '' }} @endif" required><br><br>
 
             <label>Cargo:</label><br>
-            <input type='text' name='cargo'><br><br>
+            <input type='text' name='cargo' value="@if (!empty($funcionario->cargo)) {{ $funcionario->cargo }}@elseif (!empty(old('cargo'))){{ old('cargo') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Telefone:</label><br>
-            <input type='text' name='telefone'><br><br>
+            <input type='text' name='telefone' value="@if (!empty($funcionario->telefone)) {{ $funcionario->telefone }}@elseif (!empty(old('telefone'))){{ old('telefone') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Email:</label><br>
-            <input type='text' name='email'><br><br>
+            <input type='text' name='email' value="@if (!empty($funcionario->email)) {{ $funcionario->email }}@elseif (!empty(old('email'))){{ old('email') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Endereco:</label><br>
-            <input type='text' name='endereco'><br><br>
+            <input type='text' name='endereco' value="@if (!empty($funcionario->endereco)) {{ $funcionario->endereco }}@elseif (!empty(old('endereco'))){{ old('endereco') }}@else{{ '' }} @endif"required><br><br>
 
             <input type='submit' value='Enviar' class="container text-center">
         </form>

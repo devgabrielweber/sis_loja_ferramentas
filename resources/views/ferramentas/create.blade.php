@@ -53,22 +53,22 @@
         <form action={{ $route }} method='post'>
             @csrf
             <label>Nome:</label><br>
-            <input type='text' name='nome'><br><br>
+            <input type='text' name='nome' value="@if (!empty($ferramenta->nome)) {{ $ferramenta->nome }}@elseif (!empty(old('nome'))){{ old('nome') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Marca:</label><br>
-            <input type='text' name='marca'><br><br>
+            <input type='text' name='marca' value="@if (!empty($ferramenta->marca)) {{ $ferramenta->marca }}@elseif (!empty(old('marca'))){{ old('marca') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Tipo:</label><br>
-            <input type='text' name='tipo'><br><br>
+            <input type='text' name='tipo' value="@if (!empty($ferramenta->tipo)) {{ $ferramenta->tipo }}@elseif (!empty(old('tipo'))){{ old('tipo') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Fornecedor:</label><br>
-            <input type='text' name='fornecedor'><br><br>
+            <input type='text' name='fornecedor' value="@if (!empty($ferramenta->fornecedor)) {{ $ferramenta->fornecedor }}@elseif (!empty(old('fornecedor'))){{ old('fornecedor') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Preço:</label><br>
-            <input type='number' name='preco'><br><br>
+            <input type='number' name='preco' value="@if (!empty($ferramenta->preco)) {{ $ferramenta->preco }}@elseif (!empty(old('preco'))){{ old('preco') }}@else{{ '' }} @endif"required><br><br>
 
             <label>Quantidade:</label><br>
-            <input type='text' name='qtd'><br><br>
+            <input type='text' name='qtd' value="@if (!empty($ferramenta->qtd)) {{ $ferramenta->qtd }}@elseif (!empty(old('qtd'))){{ old('qtd') }}@else{{ '' }} @endif"required><br><br>
 
             <input type='submit' value='Enviar' class="container text-center">
         </form>

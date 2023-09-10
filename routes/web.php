@@ -44,6 +44,7 @@ Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clie
 Route::get('/clientes/list', [ClienteController::class, 'list'])->name('cliente.list');;
 Route::get('/clientes/search', [ClienteController::class, 'search'])->name('cliente.search');
 Route::get('/clientes/store', [ClienteController::class, 'store'])->name('cliente.store');
+Route::get('/clientes/edit/{id}', [FuncionarioController::class, 'edit'])->name('clientes.edit');
 
 
 Route::get('/pedido/create',[PedidoController::class, 'create'])->name('pedido.create');
