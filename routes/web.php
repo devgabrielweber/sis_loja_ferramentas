@@ -19,6 +19,9 @@ use App\Http\Controllers\PedidoItemController;
 use App\Http\Controllers\FuncionarioController;
 Route::get('/', [EventController::class, 'index']);
 Route::get('/events/create', [EventController::class, 'create']);
+
+
+
 /* ROTAS DAS FERRAMENTAS */
 Route::get('/ferramentas/create', [FerramentaController::class, 'create'])->name('ferramentas.create');
 //rota do create, chama create no controller, que redirecionada para create
@@ -34,17 +37,19 @@ Route::post('/ferramentas/list', [FerramentaController::class, 'index'])->name('
 //rota post de list, para que o controller update consiga redirecionar para list. nao tem interferencia no funcionamento da pagina em si.
 Route::get('/ferramentas/list/{id}', [FerramentaController::class, 'destroy'])->name('ferramentas.destroy');
 Route::get('/ferramentas/search',[FerramentaController::class, 'search'])->name('ferramentas.search');
+
+
 /* ROTAS DOS CLIENTES */
 Route::get('/clientes/create', [ClienteController::class, 'create'])->name('cliente.create');;
 Route::get('/clientes/list', [ClienteController::class, 'list'])->name('cliente.list');;
 Route::get('/clientes/search', [ClienteController::class, 'search'])->name('cliente.search');
 Route::get('/clientes/store', [ClienteController::class, 'store'])->name('cliente.store');
-/* ROTAS DOS PEDIDOS */
+
+
 Route::get('/pedido/create',[PedidoController::class, 'create'])->name('pedido.create');
 Route::post('/pedido/update/{id}', [PedidoController::class, 'update'])->name('pedido.update');
 Route::post('/pedido/create/', [PedidoController::class, 'store'])->name('pedido.store');
 
-/* ROTAS DE DEUS SABE O QUE */
 Route::post('/pedido_item/add/{id}/{total}',[PedidoItemController::class, 'store'])->name('pedido_item.add');
 
 Route::post('/pedido/create',[PedidoController::class, 'save'])->name('pedido.save');
@@ -53,8 +58,7 @@ Route::post('/pedido/create',[PedidoController::class, 'save'])->name('pedido.sa
 // ROTA DOS FUNCIONARIOS
 Route::get('/funcionarios/create', [FuncionarioController::class, 'create'])->name('funcionarios.create');
 Route::get('/funcionarios/list', [FuncionarioController::class, 'index'])->name('funcionarios.list');
-Route::post('/funcionarios/create',
-[FuncionarioController::class, 'store'])->name('funcionarios.store');
+Route::post('/funcionarios/create', [FuncionarioController::class, 'store'])->name('funcionarios.store');
 Route::get('/funcionarios/edit/{id}', [FuncionarioController::class, 'edit'])->name('funcionarios.edit');
 Route::post('/funcionarios/update/{id}', [FuncionarioController::class, 'update'])->name('funcionarios.update');
 Route::post('/funcionarios/list', [FuncionarioController::class, 'index'])->name('funcionarios.list');
