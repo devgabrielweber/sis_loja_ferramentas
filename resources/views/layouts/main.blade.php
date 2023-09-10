@@ -39,14 +39,14 @@
                         <a href="/ferramentas/create" class="nav-link">Cadastrar Ferramenta</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/ferramentas/list" class="nav-link">Listar ferramentas</a>
+                        <a href="/ferramentas/list" class="nav-link">Listar Ferramentas</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/funcionarios/create" class="nav-link">Criar Funcionarios</a>
+                        <a href="/funcionarios/create" class="nav-link">Cadastrar Funcionários</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/funcionarios/list" class="nav-link">Listar Funcionarios</a>
+                        <a href="/funcionarios/list" class="nav-link">Listar Funcionários</a>
                     </li>
                     <ul>
             </div>
@@ -56,8 +56,8 @@
     @yield('content')
 
     <footer class='fixed-bottom'>
-        <div class="text-bg-primary p-3">
-            <p>Túlio Tools &copy; 2023. Todos os direitos reservados.</p>
+        <div class="container text-center">
+            <p class="text-muted credit">Túlio Tools &copy; 2023. Todos os direitos reservados.</p>
         </div>
     </footer>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
