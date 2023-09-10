@@ -2,7 +2,10 @@
 @section('title', 'Cadastrar Cliente')
 @section('content')
 
-    <h1>Cadastrar Cliente</h1>
+
+    <div class="container d-flex justify-content-center align-items-center flex-wrap">
+
+    <h1 class="container text-center">Cadastrar Cliente</h1>
 
     <form action='{{ route('cliente.store') }}' method='GET'>
         <label>Nome:</label><br>
@@ -25,5 +28,7 @@
 
         <input type='submit' value='Enviar'>
     </form>
+
+</div>
 
 @endsection

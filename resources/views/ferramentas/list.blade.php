@@ -37,8 +37,8 @@
                         <th>Fornecedor</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
-                        <td>Ação</td>
-                        <td>Ação</td>
+                        <th>Ação</th>
+                        <th>Ação</th>
                     </tr>
                     @foreach ($ferramentas as $ferramenta)
                         <tr>

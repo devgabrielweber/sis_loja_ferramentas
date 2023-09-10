@@ -35,6 +35,8 @@
             <th>Telefone</th>
             <th>E-mail</th>
             <th>Endereço</th>
+            <th>Ação</th>
+            <th>Ação</th>
         </tr>
         @foreach ($clientes as $cliente)
             <tr>
