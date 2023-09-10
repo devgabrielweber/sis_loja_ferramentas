@@ -13,7 +13,7 @@
                 $route = route('clientes.update', $cliente->id); //usa a rota de update
             }
         } else {
-            $route = route('clientes.store'); // use a rota store
+            $route = route('cliente.store'); // use a rota store
             // se cliente nao existir
         }
     @endphp
